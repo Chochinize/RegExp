@@ -1,21 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta charset="utf-8">
+  <title>stop demo</title>
+  <style>
+  div {
+    position: relative;
+    left: 50px;
+    top: 30px;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+}
+
+
+
+.block {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/kartinka.png);
+  box-shadow: 10px 10px 15px silver;
+
+}
+
+#H{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 4s;
+   animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  25%  {background-color:yellow; left:200px; top:0px;}
+  50%  {background-color:blue; left:200px; top:200px;}
+  75%  {background-color:green; left:0px; top:200px;}
+  100% {background-color:red; left:0px; top:0px;}
+}
+
+
+
+
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
+<!-------------------- BODYSTART --------------->
+
 <body>
-  <p>dasdas</p>
-  <a href="#" class='a' onclick=myf() >click</a>
-  <div id='out'>out</div>
+
+<button id="go">Go</button>
+<button id="stop">stop</button>
+<button id="back"> Back</button>
+<div class="block"></div>
 
 
-<script src="java.js"></script>
 
 
+<div id='H'>A</div>
+<script>
+var $block = $ ( ".block" );
+
+//Toggle a sliding animation animation
+$( "#go" ).on( "click", function(){
+  $(".block").animate({left: "+=1000px" }, 4000);
+});
+$( "#stop").click(function(){
+  $(".block" ).stop();
+});
+$('#back').click(function(){
+  $(".block").animate({left: "-=1000px"}, 4000 );
+});
+</script>
 
 </body>
-
 </html>
