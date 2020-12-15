@@ -1,15 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <meta charset="utf-8">
+  <title>toggle demo</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 </head>
 <body>
-  <p>dasdas</p>
-  SLorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga, facilis!
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, sunt.
-  <form action="new.php"></form>
+
+<button>Toggle</button>
+<p>Hello</p>
+<p style="display: none">Good Bye</p>
+
+<script>
+var flip = 0;
+$( "button" ).click(function() {
+  $( "p" ).toggle( flip++ % 2 === 0 );
+});
+</script>
+
 </body>
 </html>
